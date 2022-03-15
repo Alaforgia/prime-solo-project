@@ -12,10 +12,10 @@ import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import PageNotFound from "../../Pages/PageNotFound";
+import PageNotFound from "../PageNotFound";
 
 import "./App.css";
-import MyRecipes from "../../Pages/MyRecipe";
+import MyRecipes from "../MyRecipe";
 
 function App() {
   const dispatch = useDispatch();

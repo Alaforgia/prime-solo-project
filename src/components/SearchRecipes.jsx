@@ -5,17 +5,20 @@ import { faMagnifyingGlass, faSearchPlus } from "@fortawesome/free-solid-svg-ico
 function SearchRecipes() {
   return (
     <div>
-      <div class="flex items-center max-w-md mx-auto bg-white rounded-lg mb-8 " x-data="{ search: '' }">
-        <div class="w-full">
+      <div className="flex items-center max-w-md mx-auto bg-white rounded-lg mb-8 " x-data="{ search: '' }">
+        <div className="w-full">
           <input
             type="search"
-            class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+            className="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
             placeholder="search"
             x-model="search"
           />
         </div>
         <div>
-          <button type="submit" class="flex items-center bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg">
+          <button
+            type="submit"
+            className="flex items-center bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
+          >
             <FontAwesomeIcon icon={faMagnifyingGlass} className="h-6" />
           </button>
         </div>

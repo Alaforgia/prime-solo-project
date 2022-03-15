@@ -6,7 +6,7 @@ function MyRecipes() {
   const recipes = [
     {
       name: "Tomato Bisque",
-      image: "src/images/tomatobisque.jpeg",
+      image: "/src/Images/tomatobisque.jpeg",
     },
     {
       name: "Tomato Bisque",
