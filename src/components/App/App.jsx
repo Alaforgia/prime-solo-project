@@ -12,10 +12,11 @@ import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import PageNotFound from "../PageNotFound";
+import PageNotFound from "../../Pages/PageNotFound";
 
 import "./App.css";
 import MyRecipes from "../MyRecipe";
+import CreateRecipe from "../CreateRecipe";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ function App() {
           <Routes>
             <Route path="/my-recipes" element={<MyRecipes />} />
             <Route index element={<MyRecipes />} />
+
+            <Route path="/create-recipe" element={<CreateRecipe />} />
 
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Route path="/" render={() => <Navigate to="/my-recipes" />} />

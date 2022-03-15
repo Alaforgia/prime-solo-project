@@ -24,7 +24,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
   } else {
     res.sendStatus(403);
   }
-  res.send(req.user);
+  // res.send(req.user);
 });
 
 // Handles POST request with new user data
