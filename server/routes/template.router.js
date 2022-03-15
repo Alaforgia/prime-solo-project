@@ -1,12 +1,13 @@
 const express = require("express");
 const pool = require("../modules/pool");
+
 const router = express.Router();
 
 /**
  * GET route template
  */
 // One GET for Details page
-router.get("/", (req, res) => {
+router.get("/recipes", (req, res) => {
   let queryText = `SELECT "recipes"."title", "ingredients"."name", "ingredients"."amount", "recipes"."instructions"
   FROM "ingredients"
   JOIN "recipes" ON "ingredients"."recipe_ID" = "recipes"."id"
@@ -25,7 +26,7 @@ router.get("/", (req, res) => {
     });
 });
 // One GET for the MyRecipes page. Title and IMG
-router.get("/", (req, res) => {
+router.get("/recipes", (req, res) => {
   let queryText = `SELECT "recipes"."title, "recipes"."image"
   FROM "ingredients"
   JOIN "recipes" ON "ingredients"."recipe_ID" = "recipes"."id"
