@@ -37,6 +37,7 @@ function App() {
             <Route index element={<MyRecipes />} />
 
             <Route path="/create-recipe" element={<CreateRecipe />} />
+            <Route index element={<CreateRecipe />} />
 
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Route path="/" render={() => <Navigate to="/my-recipes" />} />

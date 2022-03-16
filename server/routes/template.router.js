@@ -7,7 +7,7 @@ const router = express.Router();
  * GET route template
  */
 // One GET for Details page
-router.get("/recipes", (req, res) => {
+router.get("/", (req, res) => {
   console.log("hello");
   // let queryText = `SELECT "recipes"."title", "ingredients"."name", "ingredients"."amount", "recipes"."instructions"
   // FROM "ingredients"
@@ -27,7 +27,7 @@ router.get("/recipes", (req, res) => {
   //   });
 });
 // One GET for the MyRecipes page. Title and IMG
-router.get("/recipes", (req, res) => {
+router.get("/", (req, res) => {
   console.log("hello");
   let queryText = `SELECT * FROM "ingredients"
   JOIN "recipes" ON "ingredients"."recipe_ID" = "recipes"."id"
@@ -52,6 +52,26 @@ router.get("/recipes", (req, res) => {
 
 router.post("/", (req, res) => {
   console.log(req.body);
+  const createNewRecipe = `
+  INSERT INTO "recipe" ("user_id", "title", "ingredients", "amount", "instructions")
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING "id";`;
+  pool
+    .query(createNewRecipe, [
+      req.body.user_id,
+      req.body.title,
+      req.body.ingredients,
+      req.body.amount,
+      req.body.instructions,
+    ])
+    .then((result) => {
+      console.log(result.rows[0].id);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
